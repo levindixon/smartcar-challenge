@@ -2,7 +2,7 @@ import React from 'react';
 
 let { Component, PropTypes } = React;
 
-export default class MenuItem extends Component {
+export default class TableOfContentsItem extends Component {
 
   static propTypes = {
     item: PropTypes.string.isRequired
@@ -14,7 +14,7 @@ export default class MenuItem extends Component {
 
   render() {
     return (
-      <li key={'menu-item-' + this.props.item}>
+      <li key={'table-of-contents-item-' + this.props.item}>
         <a href="#" onClick={this.onItemClick}>
           {this.props.item}
         </a>

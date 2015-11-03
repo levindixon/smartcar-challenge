@@ -4,7 +4,7 @@ import TableOfContents from '../TableOfContents/TableOfContents.jsx';
 
 let { PropTypes } = React;
 
-export default class Body extends React.Component {
+export default class LeftColumn extends React.Component {
 
   static defaultProps = {
     schema: []

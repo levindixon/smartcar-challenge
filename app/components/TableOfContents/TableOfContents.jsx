@@ -4,7 +4,7 @@ import TableOfContentsItem from './TableOfContentsItem.jsx';
 
 let { Component, PropTypes } = React;
 
-export default class Menu extends Component {
+export default class TableOfContents extends Component {
 
   static defaultProps = {
     schema: []
