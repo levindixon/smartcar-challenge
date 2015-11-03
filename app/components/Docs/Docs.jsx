@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './TableOfContents.css';
-import TableOfContentsItem from './TableOfContentsItem.jsx';
+import styles from './Docs.css';
+import DocsItem from './DocsItem.jsx';
 
 let { Component, PropTypes } = React;
 
-export default class TableOfContents extends Component {
+export default class Docs extends Component {
 
   static defaultProps = {
     schema: []
@@ -16,11 +16,11 @@ export default class TableOfContents extends Component {
 
   render() {
     return (
-      <ul className={styles.contents}>
+      <div className={styles.contents}>
         {this.props.schema.map((item) => {
-          return (<TableOfContentsItem item={item.title} />);
+          return (<DocsItem item={item} />);
         }, this)}
-      </ul>
+      </div>
     );
   }
 }

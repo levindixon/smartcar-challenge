@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './LeftColumn.css';
-import TableOfContents from '../TableOfContents/TableOfContents.jsx';
+import styles from './CenterColumn.css';
+import Docs from '../Docs/Docs.jsx';
 
 let { PropTypes } = React;
 
-export default class LeftColumn extends React.Component {
+export default class CenterColumn extends React.Component {
 
   static defaultProps = {
     schema: []
@@ -17,7 +17,7 @@ export default class LeftColumn extends React.Component {
   render() {
     return (
       <div className={styles.column}>
-        <TableOfContents schema={this.props.schema} />
+        <Docs schema={this.props.schema} />
       </div>
     );
   }
