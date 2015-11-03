@@ -36,17 +36,14 @@ export default class DocsItem extends Component {
     item: PropTypes.object.isRequired
   };
 
-  onItemClick = (e) => {
-    e.preventDefault();
-  }
-
   render() {
     let item = this.props.item;
+    let id = item.title.replace(/\s+/g, '-').toLowerCase();
     let requestParams = getRequestParams(item);
     let responseParams = getResponseParams(item);
 
     return (
-      <div key={'docs-item-' + this.props.item}>
+      <div id={id} key={'docs-item-' + id}>
         <h2>{item.title}</h2>
         <h3>request</h3>
         <table>
