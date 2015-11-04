@@ -12,7 +12,16 @@ export default class BaseStore extends EventEmitter {
     this.emitChange();
   }
 
+  set(item) {
+    this.data = item;
+    this.emitChange();
+  }
+
   getAll() {
     return Array.from(this.data);
+  }
+
+  get() {
+    return this.data;
   }
 }
