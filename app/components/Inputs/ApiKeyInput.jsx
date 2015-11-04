@@ -1,19 +1,17 @@
 import React from 'react';
 
 import styles from './Inputs.css';
-
-import AppActions from '../../actions/AppActions.js';
 import ApiKeyStore from '../../stores/ApiKeyStore.js';
 
-let { PropTypes } = React;
+const { PropTypes } = React;
 
 export default class ApiKeyInput extends React.Component {
-  static defaultProps = {
-    apiKey: ''
-  };
-
   static propTypes = {
     apiKey: PropTypes.string.isRequired
+  };
+
+  static defaultProps = {
+    apiKey: ''
   };
 
   state = {
@@ -34,8 +32,9 @@ export default class ApiKeyInput extends React.Component {
     });
   }
 
-  handleInputChange = (e) => {
-    ApiKeyStore.set(e.target.value)
+  handleApiKeyRefresh = () => {
+    const newApiKey = Math.random().toString(36).substring(5);
+    ApiKeyStore.set(newApiKey);
   }
 
   render() {
@@ -45,8 +44,9 @@ export default class ApiKeyInput extends React.Component {
         <input
           type="text"
           value={this.state.apiKey}
-          onChange={this.handleInputChange}
+          readOnly
         />
+        <button onClick={this.handleApiKeyRefresh}>refresh</button>
       </label>
     );
   }
