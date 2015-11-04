@@ -21,13 +21,20 @@ export default class SideBar extends React.Component {
 
   render() {
     return (
-      <div className={styles.column}>
-        <h1>smartcar</h1>
-        <hr/>
-        <h3>john doe</h3>
+      <div className={styles.sideBar}>
+        <h1 className={styles.logo}>
+          <span className={styles.logoWheel}></span>
+          <span className={styles.logoName}></span>
+        </h1>
+        <a
+          className={styles.user}
+          href="#"
+        >
+          <span className={styles.userAvatar}></span>
+          <span className={styles.username}>john doe</span>
+        </a>
         <ApiKeyInput apiKey={this.props.apiKey} />
         <VehicleIdInput vehicleId={this.props.vehicleId} />
-        <hr/>
         <TableOfContents schema={this.props.schema} />
       </div>
     );
