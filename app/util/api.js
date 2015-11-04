@@ -9,7 +9,7 @@ export default {
 
   getApiKey() {
     return new Promise((resolve) => {
-      let apiKey = Math.random().toString(36).substring(5);
+      const apiKey = Math.random().toString(36).substring(5);
       resolve(apiKey);
     });
   },

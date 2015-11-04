@@ -25,14 +25,14 @@ class VehicleIdStore extends BaseStore {
   }
 }
 
-let store = new VehicleIdStore();
+const store = new VehicleIdStore();
 
 AppDispatcher.register((action) => {
-  switch(action.actionType) {
-    case VEHICLE_ID_GET_SUCCESS:
-      store.set(action.vehicleId);
-      break;
-    default:
+  switch (action.actionType) {
+  case VEHICLE_ID_GET_SUCCESS:
+    store.set(action.vehicleId);
+    break;
+  default:
   }
 });
 

@@ -2,23 +2,27 @@ import React from 'react';
 import styles from './TableOfContents.css';
 import TableOfContentsItem from './TableOfContentsItem.jsx';
 
-let { Component, PropTypes } = React;
+const { Component, PropTypes } = React;
 
 export default class TableOfContents extends Component {
+  static propTypes = {
+    schema: PropTypes.array.isRequired
+  };
 
   static defaultProps = {
     schema: []
   };
 
-  static propTypes = {
-    schema: PropTypes.array.isRequired
-  };
-
   render() {
     return (
       <ul className={styles.contents}>
-        {this.props.schema.map((item) => {
-          return (<TableOfContentsItem item={item.title} />);
+        {this.props.schema.map((item, i) => {
+          return (
+            <TableOfContentsItem
+              key={i}
+              item={item.title}
+            />
+          );
         }, this)}
       </ul>
     );

@@ -25,14 +25,14 @@ class ApiKeyStore extends BaseStore {
   }
 }
 
-let store = new ApiKeyStore();
+const store = new ApiKeyStore();
 
 AppDispatcher.register((action) => {
-  switch(action.actionType) {
-    case API_KEY_GET_SUCCESS:
-      store.set(action.apiKey);
-      break;
-    default:
+  switch (action.actionType) {
+  case API_KEY_GET_SUCCESS:
+    store.set(action.apiKey);
+    break;
+  default:
   }
 });
 

@@ -1,19 +1,17 @@
 import React from 'react';
 
 import styles from './Inputs.css';
-
-import AppActions from '../../actions/AppActions.js';
 import VehicleIdStore from '../../stores/VehicleIdStore.js';
 
-let { PropTypes } = React;
+const { PropTypes } = React;
 
 export default class VehicleIdInput extends React.Component {
-  static defaultProps = {
-    vehicleId: 0
-  };
-
   static propTypes = {
     vehicleId: PropTypes.string.isRequired
+  };
+
+  static defaultProps = {
+    vehicleId: 0
   };
 
   state = {
@@ -35,7 +33,7 @@ export default class VehicleIdInput extends React.Component {
   }
 
   handleInputChange = (e) => {
-    VehicleIdStore.set(e.target.value)
+    VehicleIdStore.set(e.target.value);
   }
 
   render() {

@@ -1,46 +1,7 @@
 import React from 'react';
-import Template from 'lodash.template';
+import template from 'lodash.template';
 
-let { Component, PropTypes } = React;
-
-function getRequestParams(item) {
-  return (
-    item.request.map((item) => {
-      return (
-        <tr>
-          <td>{item.field}</td>
-          <td>{item.type}</td>
-          <td>{item.description}</td>
-        </tr>
-      );
-    }, this)
-  );
-}
-
-function getResponseParams(item) {
-  return (
-    item.response.map((item) => {
-      return (
-        <tr>
-          <td>{item.field}</td>
-          <td>{item.type}</td>
-          <td>{item.description}</td>
-        </tr>
-      );
-    }, this)
-  );
-}
-
-function getExample(example, vehicleId, apiKey) {
-  let compiledExample = Template(example, {interpolate: /{{([\s\S]+?)}}/g});
-
-  return (
-    compiledExample({
-      'id': vehicleId,
-      'apiKey': apiKey
-    })
-  );
-}
+const { Component, PropTypes } = React;
 
 export default class DocsItem extends Component {
 
@@ -50,17 +11,56 @@ export default class DocsItem extends Component {
     vehicleId: PropTypes.string.isRequired
   };
 
-  render() {
-    let item = this.props.item;
-    let id = item.title.replace(/\s+/g, '-').toLowerCase();
-    let requestParams = getRequestParams(item);
-    let responseParams = getResponseParams(item);
-    let example = getExample( item.example,
-                              this.props.vehicleId,
-                              this.props.apiKey );
+  getRequestParams = (requestParams) => {
+    return (
+      requestParams.map((item, i) => {
+        return (
+          <tr key={i}>
+            <td>{item.field}</td>
+            <td>{item.type}</td>
+            <td>{item.description}</td>
+          </tr>
+        );
+      }, this)
+    );
+  }
+
+  getResponseParams = (responseParams) => {
+    return (
+      responseParams.map((item, i) => {
+        return (
+          <tr key={i}>
+            <td>{item.field}</td>
+            <td>{item.type}</td>
+            <td>{item.description}</td>
+          </tr>
+        );
+      }, this)
+    );
+  }
+
+  getExample = (example, vehicleId, apiKey) => {
+    const compiledExample = template(example, {interpolate: /{{([\s\S]+?)}}/g});
 
     return (
-      <div id={id} key={'docs-item-' + id}>
+      compiledExample({
+        'id': vehicleId,
+        'apiKey': apiKey
+      })
+    );
+  }
+
+  render() {
+    const item = this.props.item;
+    const id = item.title.replace(/\s+/g, '-').toLowerCase();
+    const requestParams = this.getRequestParams(item.request);
+    const responseParams = this.getResponseParams(item.response);
+    const example = this.getExample(  item.example,
+                                    this.props.vehicleId,
+                                    this.props.apiKey);
+
+    return (
+      <div id={id}>
         <h2>{item.title}</h2>
         <h3>request</h3>
         <table>

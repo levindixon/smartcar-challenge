@@ -4,20 +4,19 @@ import ApiKeyInput from '../Inputs/ApiKeyInput.jsx';
 import VehicleIdInput from '../Inputs/VehicleIdInput.jsx';
 import TableOfContents from '../TableOfContents/TableOfContents.jsx';
 
-let { PropTypes } = React;
+const { PropTypes } = React;
 
 export default class SideBar extends React.Component {
-
-  static defaultProps = {
-    schema: [],
-    apiKey: "",
-    vehicleId: 0
-  };
-
   static propTypes = {
     schema: PropTypes.array.isRequired,
     apiKey: PropTypes.string.isRequired,
     vehicleId: PropTypes.string.isRequired
+  };
+
+  static defaultProps = {
+    schema: [],
+    apiKey: '',
+    vehicleId: 0
   };
 
   render() {
