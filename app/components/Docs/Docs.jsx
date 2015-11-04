@@ -11,14 +11,22 @@ export default class Docs extends Component {
   };
 
   static propTypes = {
-    schema: PropTypes.array.isRequired
+    schema: PropTypes.array.isRequired,
+    apiKey: PropTypes.string.isRequired,
+    vehicleId: PropTypes.string.isRequired
   };
 
   render() {
     return (
       <div className={styles.contents}>
         {this.props.schema.map((item) => {
-          return (<DocsItem item={item} />);
+          return (
+            <DocsItem
+              item={item}
+              apiKey={this.props.apiKey}
+              vehicleId={this.props.vehicleId}
+            />
+          );
         }, this)}
       </div>
     );
