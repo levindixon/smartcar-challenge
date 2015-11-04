@@ -1,0 +1,89 @@
+/*
+** Font
+*/
+
+@import url(https://i.icomoon.io/public/ba35b7dd6a/smartcar/style.css);
+
+/*
+** SideBar
+*/
+
+.sideBar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 160px;
+  padding: 25px 20px;
+  overflow-y: scroll;
+
+  background: linear-gradient(to bottom right, #e5743c 0, #d94436 100%);
+  box-shadow: -2px 0 6px 1px rgba(0,0,0,0.5);
+
+  color: #fff;
+}
+
+/*
+** Logo
+*/
+
+.logo {
+  padding-bottom: 25px;
+  margin-bottom: 30px;
+
+  border-bottom: 1px solid #ddd;
+
+  font-family: icomoon;
+  text-align: center;
+}
+
+.logoName:before {
+  content: "\21";
+  font-size: 21px;
+}
+
+.logoWheel:before {
+  content: "\22";
+
+  margin-right: 10px;
+
+  font-size: 42px;
+  vertical-align: middle;
+}
+
+/*
+** User
+*/
+
+.user {
+  display: inline-block;
+  margin-bottom: 24px;
+  padding: 0 5px;
+
+  color: #fff;
+  text-decoration: none;
+}
+
+.userAvatar {
+  padding: 3px 5px 5px 5px;
+  margin-right: 10px;
+
+  border: 1px solid #fff;
+  border-radius: 24px;
+
+  font-family: icomoon;
+  font-size: 20px;
+  line-height: 19px;
+  vertical-align: middle;
+}
+
+.userAvatar:before {
+  content: "\e901";
+}
+
+.username {
+  font-size: 14px;
+  font-weight: 300;
+  text-transform: capitalize;
+}

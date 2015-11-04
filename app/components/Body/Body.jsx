@@ -19,7 +19,7 @@ export default class Body extends React.Component {
 
   render() {
     return (
-      <div className={styles.column}>
+      <div className={styles.body}>
         <Docs
           schema={this.props.schema}
           apiKey={this.props.apiKey}

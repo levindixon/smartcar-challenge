@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Docs.css';
 import template from 'lodash.template';
 
 const { Component, PropTypes } = React;
@@ -15,10 +16,13 @@ export default class DocsItem extends Component {
     return (
       requestParams.map((item, i) => {
         return (
-          <tr key={i}>
-            <td>{item.field}</td>
-            <td>{item.type}</td>
-            <td>{item.description}</td>
+          <tr
+            className={styles.tableRow}
+            key={i}
+          >
+            <td className={styles.tableData}>{item.field}</td>
+            <td className={styles.tableData}>{item.type}</td>
+            <td className={styles.tableData}>{item.description}</td>
           </tr>
         );
       }, this)
@@ -29,10 +33,13 @@ export default class DocsItem extends Component {
     return (
       responseParams.map((item, i) => {
         return (
-          <tr key={i}>
-            <td>{item.field}</td>
-            <td>{item.type}</td>
-            <td>{item.description}</td>
+          <tr
+            className={styles.tableRow}
+            key={i}
+          >
+            <td className={styles.tableData}>{item.field}</td>
+            <td className={styles.tableData}>{item.type}</td>
+            <td className={styles.tableData}>{item.description}</td>
           </tr>
         );
       }, this)
@@ -60,57 +67,74 @@ export default class DocsItem extends Component {
                                     this.props.apiKey);
 
     return (
-      <div id={id}>
-        <h2>{item.title}</h2>
-        <h3>request</h3>
-        <table>
-          <tbody>
-            <tr>
-              <td>{item.method}</td>
-              <td>{item.url}</td>
-            </tr>
-          </tbody>
-        </table>
-        <h3>request parameters</h3>
-        <table>
-          <thead>
-            <tr>
-              <td>field</td>
-              <td>type</td>
-              <td>description</td>
-            </tr>
-          </thead>
-          <tbody>
-            {requestParams}
-          </tbody>
-        </table>
-        <h3>response parameters</h3>
-        <table>
-          <thead>
-            <tr>
-              <td>field</td>
-              <td>type</td>
-              <td>description</td>
-            </tr>
-          </thead>
-          <tbody>
-            {responseParams}
-          </tbody>
-        </table>
-        <h3>example</h3>
-        <table>
-          <tbody>
-            <tr>
-              <td>{example}</td>
-            </tr>
-          </tbody>
-        </table>
-        <div>
-          <h3>example resonse</h3>
-            <code>
-              // this would be a great place to show an
-              example of a response object.
-            </code>
+      <div
+        className={styles.docItem}
+        id={id}
+      >
+        <div className={styles.content}>
+          <h2 className={styles.title}>{item.title}</h2>
+          <h3 className={styles.header}>request</h3>
+          <div className={styles.panel}>
+            <table className={styles.table}>
+              <tbody>
+                <tr className={styles.tableRow}>
+                  <td className={styles.tableData}>
+                    <span className={styles.method}>
+                      {item.method}
+                    </span>
+                    {item.url}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3 className={styles.header}>request parameters</h3>
+          <div className={styles.panel}>
+            <table className={styles.table}>
+              <thead>
+                <tr className={styles.tableRow}>
+                  <th className={styles.tableHeader}>field</th>
+                  <th className={styles.tableHeader}>type</th>
+                  <th className={styles.tableHeader}>description</th>
+                </tr>
+              </thead>
+              <tbody>
+                {requestParams}
+              </tbody>
+            </table>
+          </div>
+          <h3 className={styles.header}>response parameters</h3>
+          <div className={styles.panel}>
+            <table className={styles.table}>
+              <thead>
+                <tr className={styles.tableRow}>
+                  <th className={styles.tableHeader}>field</th>
+                  <th className={styles.tableHeader}>type</th>
+                  <th className={styles.tableHeader}>description</th>
+                </tr>
+              </thead>
+              <tbody>
+                {responseParams}
+              </tbody>
+            </table>
+          </div>
+          <h3 className={styles.header}>example</h3>
+          <div className={styles.panel}>
+            <table className={styles.table}>
+              <tbody>
+                <tr className={styles.tableRow}>
+                  <td className={styles.tableData}>{example}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div className={styles.example}>
+          <h3 className={styles.exampleHeader}>example resonse</h3>
+          <code className={styles.code}>
+            // this would be a great place to show an
+            example of a response object.
+          </code>
         </div>
       </div>
     );

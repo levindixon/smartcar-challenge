@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './TableOfContents.css';
 
 const { Component, PropTypes } = React;
 
@@ -15,8 +16,11 @@ export default class TableOfContentsItem extends Component {
                     .toLowerCase();
 
     return (
-      <li key={'table-of-contents-item-' + itemId}>
-        <a href={itemId}>
+      <li className={styles.listItem}>
+        <a
+          className={styles.link}
+          href={itemId}
+        >
           {this.props.item}
         </a>
       </li>

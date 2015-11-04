@@ -40,13 +40,20 @@ export default class ApiKeyInput extends React.Component {
   render() {
     return (
       <label className={styles.inputs}>
-        <span>api key</span>
+        <span className={styles.label}>
+          api key
+        </span>
         <input
+          className={styles.input}
           type="text"
           value={this.state.apiKey}
           readOnly
         />
-        <button onClick={this.handleApiKeyRefresh}>refresh</button>
+        <button
+          onClick={this.handleApiKeyRefresh}
+          className={styles.button}
+        >
+        </button>
       </label>
     );
   }
