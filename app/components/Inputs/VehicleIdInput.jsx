@@ -39,8 +39,11 @@ export default class VehicleIdInput extends React.Component {
   render() {
     return (
       <label className={styles.inputs}>
-        <span>vehicle id</span>
+        <span className={styles.label}>
+          vehicle id
+        </span>
         <input
+          className={styles.input}
           type="text"
           value={this.state.vehicleId}
           onChange={this.handleInputChange}
