@@ -21,14 +21,14 @@ class SchemaStore extends BaseStore {
   }
 }
 
-let store = new SchemaStore();
+const store = new SchemaStore();
 
 AppDispatcher.register((action) => {
-  switch(action.actionType) {
-    case SCHEMA_GET_SUCCESS:
-      store.setAll(action.schema);
-      break;
-    default:
+  switch (action.actionType) {
+  case SCHEMA_GET_SUCCESS:
+    store.setAll(action.schema);
+    break;
+  default:
   }
 });
 

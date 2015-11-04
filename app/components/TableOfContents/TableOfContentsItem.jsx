@@ -1,6 +1,6 @@
 import React from 'react';
 
-let { Component, PropTypes } = React;
+const { Component, PropTypes } = React;
 
 export default class TableOfContentsItem extends Component {
 
@@ -9,10 +9,10 @@ export default class TableOfContentsItem extends Component {
   };
 
   render() {
-    let itemId = '#' +
-      this.props.item
-      .replace(/\s+/g, '-')
-      .toLowerCase();
+    const itemId =  '#' +
+                    this.props.item
+                    .replace(/\s+/g, '-')
+                    .toLowerCase();
 
     return (
       <li key={'table-of-contents-item-' + itemId}>
