@@ -15,16 +15,30 @@ export default class TableOfContents extends Component {
 
   render() {
     return (
-      <ul className={styles.contents}>
-        {this.props.schema.map((item, i) => {
-          return (
-            <TableOfContentsItem
-              key={i}
-              item={item.title}
-            />
-          );
-        }, this)}
-      </ul>
+      <div className={styles.tableOfContents}>
+        <h3 className={styles.header}>introduction</h3>
+        <ul className={styles.list}>
+          <li className={styles.listItem}>
+            <a
+              className={styles.link}
+              href="#introduction"
+            >
+              introduction
+            </a>
+          </li>
+        </ul>
+        <h3 className={styles.header}>methods</h3>
+        <ul className={styles.list}>
+          {this.props.schema.map((item, i) => {
+            return (
+              <TableOfContentsItem
+                key={i}
+                item={item.title}
+              />
+            );
+          }, this)}
+        </ul>
+      </div>
     );
   }
 }
