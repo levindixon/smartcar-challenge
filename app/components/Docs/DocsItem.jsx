@@ -88,6 +88,13 @@ export default class DocsItem extends Component {
             </tr>
           </tbody>
         </table>
+        <div>
+          <h3>example resonse</h3>
+            <code>
+              // this would be a great place to show an
+                example of a response object.
+            </code>
+        </div>
       </div>
     );
   }
