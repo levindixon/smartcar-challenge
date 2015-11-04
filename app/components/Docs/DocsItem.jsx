@@ -1,4 +1,5 @@
 import React from 'react';
+import Template from 'lodash.template';
 
 let { Component, PropTypes } = React;
 
@@ -30,10 +31,23 @@ function getResponseParams(item) {
   );
 }
 
+function getExample(example, vehicleId, apiKey) {
+  let compiledExample = Template(example, {interpolate: /{{([\s\S]+?)}}/g});
+
+  return (
+    compiledExample({
+      'id': vehicleId,
+      'apiKey': apiKey
+    })
+  );
+}
+
 export default class DocsItem extends Component {
 
   static propTypes = {
-    item: PropTypes.object.isRequired
+    item: PropTypes.object.isRequired,
+    apiKey: PropTypes.string.isRequired,
+    vehicleId: PropTypes.string.isRequired
   };
 
   render() {
@@ -41,6 +55,9 @@ export default class DocsItem extends Component {
     let id = item.title.replace(/\s+/g, '-').toLowerCase();
     let requestParams = getRequestParams(item);
     let responseParams = getResponseParams(item);
+    let example = getExample( item.example,
+                              this.props.vehicleId,
+                              this.props.apiKey );
 
     return (
       <div id={id} key={'docs-item-' + id}>
@@ -84,7 +101,7 @@ export default class DocsItem extends Component {
         <table>
           <tbody>
             <tr>
-              <td>{item.example}</td>
+              <td>{example}</td>
             </tr>
           </tbody>
         </table>
@@ -92,7 +109,7 @@ export default class DocsItem extends Component {
           <h3>example resonse</h3>
             <code>
               // this would be a great place to show an
-                example of a response object.
+              example of a response object.
             </code>
         </div>
       </div>
